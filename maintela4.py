@@ -1,14 +1,10 @@
 from funcoes import limpartela
 import pygame
-import time
 
 limpartela()
 pygame.init()
 tamanho = (800,600)
 tela = pygame.display.set_mode( tamanho )
-clock = pygame.time.Clock()
-running = True
-posicaoxbola = 0
 branco = (255,255,255)
 preto = (0,0,0)
 
@@ -21,11 +17,13 @@ while running:
             running = False
 
     tela.fill(branco)
-    pygame.draw.circle(tela, preto, (posicaoxbola,300),54)
-    posicaoxbola = posicaoxbola + 1
-    
+    pygame.draw.line(tela, preto, (0,300),(800,300),1)
+    pygame.draw.line(tela, preto, (100,120),(100,500),1)
+    pygame.draw.line(tela, preto, (100,120),(175,350),1)
+    pygame.draw.line(tela, preto, (175,350),(225,189),1)
+    pygame.draw.line(tela, preto, (225,189),(225,450),1)
+    pygame.draw.line(tela, preto, (225,450),(450,100),1)
+    pygame.draw.line(tela, preto, (450,100),(732,450),1)
+
     pygame.display.update()
-    clock.tick(60)
-
-
 pygame.quit()
