@@ -12,6 +12,10 @@ running = True
 posicaoxbola = 0
 posicaoybola = 0
 direita = True
+pygame.display.set_caption("SONIC_FLAPPY")
+fundo = pygame.image.load("FUNDOSONIC.jpg")
+flappy = pygame.image.load("flappy.png")
+pygame.display.set_icon(flappy)
 movimentobolaVx = 0
 movimentobolaVy = 0
 posicaoybolaV = 300
@@ -78,7 +82,11 @@ while running:
     if posicaoybolaV > 600:
         posicaoybolaV = 600       
     posicaoybolaV = posicaoybolaV + movimentobolaVy
-    pygame.draw.circle(tela,vermelho,(posicaoxbolaV,posicaoybolaV), 30)
+    #pygame.draw.circle(tela,vermelho,(posicaoxbolaV,posicaoybolaV), 30)
+
+    tela.blit(fundo,(0,0))
+    tela.blit(flappy,(posicaoxbolaV,posicaoybolaV))
+   
 
 
     pygame.display.update()
