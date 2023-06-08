@@ -15,6 +15,7 @@ direita = True
 pygame.display.set_caption("SONIC_FLAPPY")
 fundo = pygame.image.load("FUNDOSONIC.jpg")
 flappy = pygame.image.load("flappy.png")
+flappy_Original = pygame.image.load("flappy.png")
 pygame.display.set_icon(flappy)
 movimentobolaVx = 0
 movimentobolaVy = 0
@@ -34,8 +35,10 @@ while running:
             running = False
         elif evento.type == pygame.KEYDOWN and evento.key== pygame.K_LEFT:
             movimentobolaVx = -5
+            flappy = pygame.transform.flip(flappy,True,False)
         elif evento.type == pygame.KEYDOWN and evento.key== pygame.K_RIGHT:
             movimentobolaVx = 5
+            flappy = flappy_Original
         elif evento.type == pygame.KEYUP and evento.key== pygame.K_LEFT:
             movimentobolaVx = 0
         elif evento.type == pygame.KEYUP and evento.key== pygame.K_RIGHT:
