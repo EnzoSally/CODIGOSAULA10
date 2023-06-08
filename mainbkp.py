@@ -64,11 +64,19 @@ while running:
     else:
         posicaoxbola = posicaoxbola - velocidade
 
-
-    if posicaoybolaV >= 800:
-        direita = False
+    #FAZENDO PAREDES DIREITA E ESQUERDA
+    if posicaoxbolaV < 0:
+        posicaoxbolaV = 0
+    if posicaoxbolaV > 800:
+        posicaoxbolaV = 800
 
     posicaoxbolaV = posicaoxbolaV + movimentobolaVx
+    
+    #FAZENDO PAREDES CIMA E BAIXO
+    if posicaoybolaV < 0:
+        posicaoybolaV = 0    
+    if posicaoybolaV > 600:
+        posicaoybolaV = 600       
     posicaoybolaV = posicaoybolaV + movimentobolaVy
     pygame.draw.circle(tela,vermelho,(posicaoxbolaV,posicaoybolaV), 30)
 
