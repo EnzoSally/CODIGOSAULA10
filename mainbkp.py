@@ -15,6 +15,7 @@ direita = True
 pygame.display.set_caption("SONIC_FLAPPY")
 fundo = pygame.image.load("FUNDOSONIC.jpg")
 flappy = pygame.image.load("flappy.png")
+CANO = pygame.image.load("CANO.png")
 flappy_Original = pygame.image.load("flappy.png")
 pygame.display.set_icon(flappy)
 movimentobolaVx = 0
@@ -54,12 +55,12 @@ while running:
 
 
     tela.fill(branco)
-    # pygame.draw.circle(tela, preto, (posicaoxbola,posicaoybola),54)
+    pygame.draw.circle(tela, preto, (posicaoxbola,posicaoybola),54)
     if posicaoxbola >= 800:
         direita = False
-        velocidade = velocidade + 4
+       # velocidade = velocidade + 4
         posicaoybola = random.randint(0,600)
-        winsound.Beep(500,300)
+       # winsound.Beep(500,300)
     
     elif posicaoxbola <= 0:
         direita = True
@@ -89,6 +90,7 @@ while running:
 
     tela.blit(fundo,(0,0))
     tela.blit(flappy,(posicaoxbolaV,posicaoybolaV))
+    tela.blit(CANO,(posicaoxbola,posicaoybola))
    
 
 
