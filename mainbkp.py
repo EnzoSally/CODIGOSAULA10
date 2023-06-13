@@ -94,6 +94,17 @@ while running:
     tela.blit(flappy,(posicaoxbolaV,posicaoybolaV))
     tela.blit(CANO,(posicaoxbola,posicaoybola))
    
+    pixelXFlappy = list(range(posicaoxbolaV,posicaoxbolaV + 100)) #+os pixels dele
+    pixelyFlappy = list(range(posicaoybolaV,posicaoybolaV + 54))
+    pixelXcano = list(range(posicaoxbola, posicaoxbola + 100))
+    pixelycano = list(range(posicaoybola, posicaoybola + 144))
+
+    totalpixelaltura = len(list(set(pixelXFlappy)& set(pixelXcano))) #testar os pixels
+    totalpixellargura = len(list(set(pixelyFlappy)& set(pixelycano))) #testar os pixels
+
+    if totalpixelaltura > 12:
+        if totalpixellargura > 28:
+            running = False
 
 
     pygame.display.update()
