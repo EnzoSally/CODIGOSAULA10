@@ -18,6 +18,8 @@ flappy = pygame.image.load("flappy.png")
 CANO = pygame.image.load("CANO.png")
 flappy_Original = pygame.image.load("flappy.png")
 pygame.display.set_icon(flappy)
+pygame.mixer.music.load("Trilha.mp3")
+pygame.mixer.music.play(-1)
 movimentobolaVx = 0
 movimentobolaVy = 0
 posicaoybolaV = 300
