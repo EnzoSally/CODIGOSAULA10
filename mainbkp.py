@@ -66,7 +66,7 @@ while running:
     
     elif posicaoxbola <= 0:
         direita = True
-        velocidade = velocidade + 4
+        velocidade = velocidade + 1
     
     if direita:
         posicaoxbola = posicaoxbola + velocidade
