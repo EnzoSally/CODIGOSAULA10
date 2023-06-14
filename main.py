@@ -1,6 +1,7 @@
 import pygame
 import winsound
 import random
+import datetime
 pygame.init()
 
 tamanho = (800,600)
@@ -9,7 +10,6 @@ pygame.display.set_caption("FlappyBird do Marcão")
 clock = pygame.time.Clock()
 flappy = pygame.image.load("flappybird.png")
 pygame.display.set_icon(flappy)
-
 
 def gameOver():
     branco = (255,255,255)
@@ -35,6 +35,7 @@ def gameOver():
         pygame.display.update()
         clock.tick(60)
 
+
 def jogo():
     branco = (255,255,255)
     preto = (0,0,0)
@@ -59,6 +60,26 @@ def jogo():
     pygame.mixer.Sound.play(pacSound)
     fonte = pygame.font.Font(None, 36)
     pontos = 0
+    def salvar_pontuacao(pontos):
+
+        data_hora = datetime.datetime.now()
+        data_formatada = data_hora.strftime("%d/%m/%Y %H:%M:%S")
+        conteudo = f"Pontos: {pontos}\nData e hora: {data_formatada}"
+
+        with open("pontuacoes.txt", "a") as arquivo:
+            arquivo.write(conteudo + "\n")
+            if posicaoXBolinha >= 800:
+                pontos = pontos + 1
+                direita = False
+            elif posicaoXBolinha <= 0:
+                pontos = pontos + 1
+                direita = True
+            if gameOver: 
+
+                salvar_pontuacao(pontos)
+
+        
+
     while running:
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
@@ -147,6 +168,9 @@ def jogo():
         tela.blit(texto, (10,10))
         pygame.display.update()
         clock.tick(60)
+
+
+
 
 jogo()
 pygame.quit()
