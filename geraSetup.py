@@ -1,21 +1,18 @@
 import cx_Freeze
-#pip install cx_Freeze
-
 executables = [
-    cx_Freeze.Executable(script="mainbkp.py", icon="flappy.ico")
+    cx_Freeze.Executable(script="main.py", icon="flappybird.ico")
 ]
-
 cx_Freeze.setup(
-        name = "Flappy",
-        options = {
-            "build_exe":{
-                "packages": ["pygame"],
-                "include_files":[
-                    "FUNDOSONIC.jpg",
-                    "flappy.png"
+    name = "FlappyBird",
+    options = {
+        "build_exe":{
+            "packages": ["pygame"],
+            "include_files": [
+                "fundo.jpg",
+                "flappybird.png"
             ]
         }
     } , executables = executables
 )
-
-#python nome do arquivo build
+# python geraSetup.py build
+# python geraSetup.py bdist_msi
